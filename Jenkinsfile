@@ -1,4 +1,8 @@
 pipeline {
+    environment {
+    registry = "umairzafar786/springdemo"
+    registryCredential = 'dockerhub'
+  }
     agent any
     stages {
         stage('Build') {
