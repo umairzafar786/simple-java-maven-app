@@ -31,6 +31,12 @@ pipeline {
            bat "docker rmi $registry:$BUILD_NUMBER"
      }
    }
+   stage('Artifact') { 
+     steps {
+           bat 'mkdir artifact'
+           bat 'copy /target/*.jar > /artifact/'
+     }
+   }
 }
     
 }
