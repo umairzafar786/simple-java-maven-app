@@ -32,11 +32,7 @@ pipeline {
      }
    }
 }
-    def doesJavaRock = input(message: 'did u proceed??', ok: 'Yes', 
-                        parameters: [booleanParam(defaultValue: true, 
-                        description: 'for artifact',name: 'Yes?')])
-
-   echo post {
+    post {
         always {
             archiveArtifacts artifacts: '/target/*.jar', onlyIfSuccessful: true
         }
