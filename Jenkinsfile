@@ -17,7 +17,7 @@ pipeline {
                 }
             }
         }
-       stage('Deploy Image') {
+       stage('Image-Push') {
           steps{
               script {
                   docker.withRegistry( '', registryCredential ) {
@@ -26,10 +26,10 @@ pipeline {
           }
         }
      }
-    stage('Remove Unused docker image') {
-      steps{
-        bat "docker rmi $registry:$BUILD_NUMBER"
-      }
-   }
+   // stage('Remove Unused docker image') {
+   //   steps{
+    //    bat "docker rmi $registry:$BUILD_NUMBER"
+     // }
+   //}
 }
 }
