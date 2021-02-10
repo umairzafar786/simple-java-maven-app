@@ -1,4 +1,10 @@
 pipeline {
+    parameters {
+        booleanParam (
+            defaultValue: true,
+            description: 'Artifact',
+            name: 'CLICK_TO_PROCEED')
+    }
     environment {
     registry = "umairzafar786/springdemo"
     registryCredential = 'dockerhub'
@@ -34,8 +40,9 @@ pipeline {
 }
     post {
         always {
-            archiveArtifacts artifacts: '/target/*.jar', onlyIfSuccessful: true
-        }
+            if ( params.CLICK_TO_PROCEED ) {
+                archiveArtifacts artifacts: '/target/*.jar', onlyIfSuccessful: true
+       }
     }
-    
+  }
 }
