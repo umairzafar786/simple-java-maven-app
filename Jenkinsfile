@@ -3,6 +3,7 @@ pipeline {
     registry = "umairzafar786/springdemo"
     registryCredential = 'dockerhub'
   }
+    def app
     agent any
     stages {
         stage('Build') {
@@ -13,7 +14,7 @@ pipeline {
         stage('Build_image'){
             steps {
                 script {
-                    docker.build registry + ":$BUILD_NUMBER"
+                    app = docker.build registry + ":$BUILD_NUMBER"
                 }
             }
         }
@@ -21,7 +22,7 @@ pipeline {
           steps {
               script {
                   docker.withRegistry( '', registryCredential ) {
-                    dockerImage.push()
+                    app.push()
              }
           }
         }
