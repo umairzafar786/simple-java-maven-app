@@ -3,7 +3,6 @@ pipeline {
     registry = "umairzafar786/springdemo"
     registryCredential = 'dockerhub'
   }
-    def app
     agent any
     stages {
         stage('Build') {
