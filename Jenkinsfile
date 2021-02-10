@@ -22,15 +22,14 @@ pipeline {
               script {
                   docker.withRegistry( '', registryCredential ) {
                     dockerImage.push("$BUILD_NUMBER")
-                      dockerImage.push('latest')
              }
           }
         }
      }
-   // stage('Remove Unused docker image') {
-   //   steps{
-    //    bat "docker rmi $registry:$BUILD_NUMBER"
-     // }
-   //}
+   stage('Remove Unused docker image') {
+     steps{
+       bat "docker rmi $registry:$BUILD_NUMBER"
+     }
+   }
 }
 }
