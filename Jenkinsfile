@@ -9,7 +9,6 @@ pipeline {
             steps {
                 bat 'mvn -B -DskipTests clean package'
             }
-        }
     }
         stage('Build_image'){
             steps {
@@ -32,4 +31,5 @@ pipeline {
         bat "docker rmi $registry:$BUILD_NUMBER"
       }
    }
+}
 }
