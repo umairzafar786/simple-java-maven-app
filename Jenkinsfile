@@ -39,7 +39,7 @@ pipeline {
    }
 }
     post {
-        success {
+        always {
             if ( ${params.CLICK_TO_PROCEED} ) {
                 archiveArtifacts artifacts: '/target/*.jar', onlyIfSuccessful: true
        }
