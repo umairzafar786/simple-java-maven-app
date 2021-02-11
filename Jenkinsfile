@@ -4,10 +4,10 @@ pipeline {
             defaultValue: true,
             description: 'Artifact',
             name: 'For_Artifact')
-        booleanParam (
-            defaultValue: false,
-            description: 'No Artifact',
-            name: 'No_Artifact')
+        //booleanParam (
+          //  defaultValue: false,
+          //  description: 'No Artifact',
+           // name: 'No_Artifact')
     }
     environment {
     registry = "umairzafar786/springdemo"
