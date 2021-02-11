@@ -48,9 +48,9 @@ pipeline {
             if ( params.For_Artifact == true) {
                 archiveArtifacts artifacts: '/target/*.jar' , onlyIfSuccessful: true 
             }
-            else ( params.For_Artifact == false ) {
-                bat "echo pipeline_completed"
-       }
+            //else ( params.For_Artifact == false ) {
+              //  bat "echo pipeline_completed"
+       //}
       }          
     }
   }
