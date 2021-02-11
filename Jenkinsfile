@@ -40,9 +40,11 @@ pipeline {
 }
     post {
         always {
+            script {
             if ( params.CLICK_TO_PROCEED ) {
                 archiveArtifacts artifacts: '/target/*.jar', onlyIfSuccessful: true
        }
+      }          
     }
   }
 }
