@@ -46,7 +46,7 @@ pipeline {
        // always {
             script {
             if ( params.For_Artifact ) {
-                archiveArtifacts artifacts: '/target/*.jar' //, onlyIfSuccessful: true 
+                archiveArtifacts artifacts: '/target/*.jar' , onlyIfSuccessful: true 
             }
             else ( params.No_Artifact ) {
                 bat echo "pipeline completed"
