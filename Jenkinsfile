@@ -3,11 +3,11 @@ pipeline {
         booleanParam (
             defaultValue: true,
             description: 'Artifact',
-            name: 'CLICK_TO_PROCEED')
+            name: 'For_Artifact')
         booleanParam (
             defaultValue: false,
             description: 'No Artifact',
-            name: 'CLICK_TO_PROCEED')
+            name: 'No_Artifact')
     }
     environment {
     registry = "umairzafar786/springdemo"
@@ -45,10 +45,10 @@ pipeline {
     post {
         always {
             script {
-            if ( params.CLICK_TO_PROCEED == true ) {
-                archiveArtifacts artifacts: '/target/*.jar', onlyIfSuccessful: true 
+            if ( params.For_Artifact ) {
+                archiveArtifacts artifacts: '/target/*.jar' //, onlyIfSuccessful: true 
             }
-            else ( params.CLICK_TO_PROCEED == false) {
+            else ( params.No_Artifact) {
                 bat echo "pipeline completed"
        }
       }          
