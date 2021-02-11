@@ -45,12 +45,13 @@ pipeline {
     post {
        // always {
             script {
+                always {
             if ( params.For_Artifact ) {
                 archiveArtifacts artifacts: '/target/*.jar' , onlyIfSuccessful: true 
             }
             else ( params.No_Artifact == false ) {
                 bat echo "pipeline completed"
-       //}
+       }
       }          
     }
   }
