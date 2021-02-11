@@ -48,8 +48,8 @@ pipeline {
             if ( params.For_Artifact == true) {
                 archiveArtifacts artifacts: '/target/*.jar' , onlyIfSuccessful: true 
             }
-            else ( params.No_Artifact == false ) {
-                bat echo "pipeline completed"
+            else ( params.For_Artifact == false ) {
+                bat "echo pipeline_completed"
        }
       }          
     }
