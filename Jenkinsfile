@@ -43,10 +43,9 @@ pipeline {
    }
 }
     post {
-       // always {
+        always {
             script {
-                always {
-            if ( params.For_Artifact ) {
+            if ( params.For_Artifact == true) {
                 archiveArtifacts artifacts: '/target/*.jar' , onlyIfSuccessful: true 
             }
             else ( params.No_Artifact == false ) {
