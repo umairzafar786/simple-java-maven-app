@@ -40,7 +40,7 @@ pipeline {
 }
     post {
         always {
-            if ( ${params.CLICK_TO_PROCEED} ) {
+            if ( params.CLICK_TO_PROCEED ) {
                 archiveArtifacts artifacts: '/target/*.jar', onlyIfSuccessful: true
        }
     }
