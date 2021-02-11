@@ -49,7 +49,7 @@ pipeline {
                 archiveArtifacts artifacts: '/target/*.jar', onlyIfSuccessful: true 
             }
             else ( params.CLICK_TO_PROCEED == false) {
-                bat "echo pipeline completed"
+                bat echo "pipeline completed"
        }
       }          
     }
